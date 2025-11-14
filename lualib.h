@@ -53,7 +53,8 @@ LUAMOD_API int (luaopen_table) (lua_State *L);
 
 #define LUA_UTF8LIBNAME	"utf8"
 #define LUA_UTF8LIBK	(LUA_TABLIBK << 1)
-LUAMOD_API int (luaopen_utf8) (lua_State *L);
+// ygd_delete3
+// LUAMOD_API int (luaopen_utf8) (lua_State *L);
 
 
 /* open selected libraries */
