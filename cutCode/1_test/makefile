@@ -137,9 +137,7 @@ echo:
 	@echo "MYLIBS = $(MYLIBS)"
 	@echo "DL = $(DL)"
 
-$(ALL_O): makefile
-# ygd_modify
-# $(ALL_O): makefile ltests.h
+$(ALL_O): makefile ltests.h
 
 # DO NOT EDIT
 # automatically made with 'gcc -MM l*.c'
@@ -200,11 +198,10 @@ ltable.o: ltable.c lprefix.h lua.h luaconf.h ldebug.h lstate.h lobject.h \
  llimits.h ltm.h lzio.h lmem.h ldo.h lgc.h lstring.h ltable.h lvm.h
 ltablib.o: ltablib.c lprefix.h lua.h luaconf.h lauxlib.h lualib.h \
  llimits.h
-# ygd_delete
-# ltests.o: ltests.c lprefix.h lua.h luaconf.h lapi.h llimits.h lstate.h \
-#  lobject.h ltm.h lzio.h lmem.h lauxlib.h lcode.h llex.h lopcodes.h \
-#  lparser.h lctype.h ldebug.h ldo.h lfunc.h lopnames.h lstring.h lgc.h \
-#  ltable.h lualib.h
+ltests.o: ltests.c lprefix.h lua.h luaconf.h lapi.h llimits.h lstate.h \
+ lobject.h ltm.h lzio.h lmem.h lauxlib.h lcode.h llex.h lopcodes.h \
+ lparser.h lctype.h ldebug.h ldo.h lfunc.h lopnames.h lstring.h lgc.h \
+ ltable.h lualib.h
 ltm.o: ltm.c lprefix.h lua.h luaconf.h ldebug.h lstate.h lobject.h \
  llimits.h ltm.h lzio.h lmem.h ldo.h lgc.h lstring.h ltable.h lvm.h
 lua.o: lua.c lprefix.h lua.h luaconf.h lauxlib.h lualib.h llimits.h
