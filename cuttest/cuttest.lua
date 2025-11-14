@@ -8,7 +8,9 @@ local function test()
     -- utf8 del
     local s = "how delicious😘"
     print("utf8",utf8) --nil
-    -- 
+    -- debug del
+    print("debug",debug) --nil
+
     print("success")
 end
 

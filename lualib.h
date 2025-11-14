@@ -28,7 +28,8 @@ LUAMOD_API int (luaopen_coroutine) (lua_State *L);
 
 #define LUA_DBLIBNAME	"debug"
 #define LUA_DBLIBK	(LUA_COLIBK << 1)
-LUAMOD_API int (luaopen_debug) (lua_State *L);
+// ygd_delete4
+// LUAMOD_API int (luaopen_debug) (lua_State *L);
 
 #define LUA_IOLIBNAME	"io"
 #define LUA_IOLIBK	(LUA_DBLIBK << 1)

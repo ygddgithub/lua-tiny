@@ -109,7 +109,8 @@
 #ifndef MAKE_LUAC
 #include "lbaselib.c"
 #include "lcorolib.c"
-#include "ldblib.c"
+// ygd_delete4
+// #include "ldblib.c"
 #include "liolib.c"
 // ygd_delete2
 // #include "lmathlib.c"
