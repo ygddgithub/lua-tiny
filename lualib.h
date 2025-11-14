@@ -36,7 +36,8 @@ LUAMOD_API int (luaopen_io) (lua_State *L);
 
 #define LUA_MATHLIBNAME	"math"
 #define LUA_MATHLIBK	(LUA_IOLIBK << 1)
-LUAMOD_API int (luaopen_math) (lua_State *L);
+// ygd_delete2
+// LUAMOD_API int (luaopen_math) (lua_State *L);
 
 #define LUA_OSLIBNAME	"os"
 #define LUA_OSLIBK	(LUA_MATHLIBK << 1)
