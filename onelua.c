@@ -115,7 +115,8 @@
 // #include "liolib.c"
 // ygd_delete2
 // #include "lmathlib.c"
-#include "loadlib.c"
+// ygd_delete6
+// #include "loadlib.c"
 #include "loslib.c"
 #include "lstrlib.c"
 #include "ltablib.c"

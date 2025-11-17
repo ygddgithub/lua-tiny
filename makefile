@@ -99,8 +99,8 @@ CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o \
 # 	ltm.o lundump.o lvm.o lzio.o ltests.o
 AUX_O=	lauxlib.o
 LIB_O=	lbaselib.o loslib.o ltablib.o lstrlib.o \
-	loadlib.o lcorolib.o linit.o
-# ygd_modify2 3 4 5
+	lcorolib.o linit.o
+# ygd_modify2 3 4 5 6
 # LIB_O=	lbaselib.o ldblib.o liolib.o lmathlib.o loslib.o ltablib.o lstrlib.o \
 # 	lutf8lib.o loadlib.o lcorolib.o linit.o
 
@@ -187,7 +187,8 @@ llex.o: llex.c lprefix.h lua.h luaconf.h lctype.h llimits.h ldebug.h \
 #  llimits.h
 lmem.o: lmem.c lprefix.h lua.h luaconf.h ldebug.h lstate.h lobject.h \
  llimits.h ltm.h lzio.h lmem.h ldo.h lgc.h
-loadlib.o: loadlib.c lprefix.h lua.h luaconf.h lauxlib.h lualib.h \
+# ygd_delete6
+# loadlib.o: loadlib.c lprefix.h lua.h luaconf.h lauxlib.h lualib.h \
  llimits.h
 lobject.o: lobject.c lprefix.h lua.h luaconf.h lctype.h llimits.h \
  ldebug.h lstate.h lobject.h ltm.h lzio.h lmem.h ldo.h lstring.h lgc.h \

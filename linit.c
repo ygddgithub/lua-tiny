@@ -27,7 +27,7 @@
 */
 static const luaL_Reg stdlibs[] = {
   {LUA_GNAME, luaopen_base},
-  {LUA_LOADLIBNAME, luaopen_package},
+  // {LUA_LOADLIBNAME, luaopen_package},
   {LUA_COLIBNAME, luaopen_coroutine},
   // ygd_delete4
   // {LUA_DBLIBNAME, luaopen_debug},

@@ -19,7 +19,8 @@ LUAMOD_API int (luaopen_base) (lua_State *L);
 
 #define LUA_LOADLIBNAME	"package"
 #define LUA_LOADLIBK	(LUA_GLIBK << 1)
-LUAMOD_API int (luaopen_package) (lua_State *L);
+// ygd_delete6
+// LUAMOD_API int (luaopen_package) (lua_State *L);
 
 
 #define LUA_COLIBNAME	"coroutine"

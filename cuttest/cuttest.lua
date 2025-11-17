@@ -12,6 +12,8 @@ local function test()
     print("debug",debug) --nil
     --io del
     print("io",io)
+    --package del
+    print("package",package)
 
     print("success")
 end
