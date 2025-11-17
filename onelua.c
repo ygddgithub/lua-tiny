@@ -111,7 +111,8 @@
 #include "lcorolib.c"
 // ygd_delete4
 // #include "ldblib.c"
-#include "liolib.c"
+// ygd_delete5
+// #include "liolib.c"
 // ygd_delete2
 // #include "lmathlib.c"
 #include "loadlib.c"
