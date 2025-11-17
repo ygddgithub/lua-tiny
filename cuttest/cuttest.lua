@@ -10,6 +10,8 @@ local function test()
     print("utf8",utf8) --nil
     -- debug del
     print("debug",debug) --nil
+    --io del
+    print("io",io)
 
     print("success")
 end

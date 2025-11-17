@@ -31,7 +31,8 @@ static const luaL_Reg stdlibs[] = {
   {LUA_COLIBNAME, luaopen_coroutine},
   // ygd_delete4
   // {LUA_DBLIBNAME, luaopen_debug},
-  {LUA_IOLIBNAME, luaopen_io},
+  // ygd_delete5
+  // {LUA_IOLIBNAME, luaopen_io},
   // ygd_delete2
   // {LUA_MATHLIBNAME, luaopen_math},
   {LUA_OSLIBNAME, luaopen_os},
