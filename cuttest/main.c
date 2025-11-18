@@ -38,18 +38,18 @@ int main(int argc, char **argv) {
 
     // 5. C 和 Lua 互相调用示例
     // 把 C 的变量传给 Lua
-    lua_pushnumber(L, 3.14159);
-    lua_setglobal(L, "pi_from_c");
+    // lua_pushnumber(L, 3.14159);
+    // lua_setglobal(L, "pi_from_c");
 
-    // 调用 Lua 函数并获取返回值
-    lua_getglobal(L, "math");      // 压入 table math
-    lua_getfield(L, -1, "sin");    // 压入 math.sin
-    lua_pushnumber(L, 1.57);
-    if (lua_pcall(L, 1, 1, 0) == LUA_OK) {
-        printf("sin(1.57) ≈ %.4f\n", lua_tonumber(L, -1));
-        lua_pop(L, 1);
-    }
-    lua_pop(L, 1); // 弹出 math table
+    // // 调用 Lua 函数并获取返回值
+    // lua_getglobal(L, "math");      // 压入 table math
+    // lua_getfield(L, -1, "sin");    // 压入 math.sin
+    // lua_pushnumber(L, 1.57);
+    // if (lua_pcall(L, 1, 1, 0) == LUA_OK) {
+    //     printf("sin(1.57) ≈ %.4f\n", lua_tonumber(L, -1));
+    //     lua_pop(L, 1);
+    // }
+    // lua_pop(L, 1); // 弹出 math table
 
     // 6. 关闭 Lua 状态机
     lua_close(L);

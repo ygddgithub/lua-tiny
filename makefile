@@ -71,6 +71,7 @@ LOCAL = $(TESTS) $(CWARNS)
 # To enable Linux goodies, -DLUA_USE_LINUX
 # For C89, "-std=c89 -DLUA_USE_C89"
 # Note that Linux/Posix options are not compatible with C89
+DEBUG_FLAGS = -g3 -ggdb -fno-omit-frame-pointer
 MYCFLAGS= $(LOCAL) -std=c99 -DLUA_USE_LINUX
 MYLDFLAGS= -Wl,-E
 MYLIBS= -ldl
@@ -114,6 +115,10 @@ ALL_A= $(CORE_T)
 
 all:	$(ALL_T)
 	touch all
+
+debug: CFLAGS = -Wall -O0 $(MYCFLAGS) -fno-stack-protector -fno-common -march=native $(DEBUG_FLAGS)
+debug: $(ALL_T)
+	@echo "Build with debug symbols complete"
 
 o:	$(ALL_O)
 

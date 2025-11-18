@@ -1114,15 +1114,15 @@ static void f_parser (lua_State *L, void *ud) {
   struct SParser *p = cast(struct SParser *, ud);
   const char *mode = p->mode ? p->mode : "bt";
   int c = zgetc(p->z);  /* read first character */
-  if (c == LUA_SIGNATURE[0]) {
+  if (c == LUA_SIGNATURE[0]) { /* 字节码*/
     int fixed = 0;
     if (strchr(mode, 'B') != NULL)
       fixed = 1;
     else
       checkmode(L, mode, "binary");
-    cl = luaU_undump(L, p->z, p->name, fixed);
+    cl = luaU_undump(L, p->z, p->name, fixed); /*反序列化*/
   }
-  else {
+  else { /*源码*/
     checkmode(L, mode, "text");
     cl = luaY_parser(L, p->z, &p->buff, &p->dyd, p->name, c);
   }
