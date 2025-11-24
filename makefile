@@ -78,7 +78,8 @@ MYLIBS= -ldl
 
 
 CC= gcc
-CFLAGS= -Wall -O2 $(MYCFLAGS) -fno-stack-protector -fno-common -march=native
+# CFLAGS= -Wall -O2 $(MYCFLAGS) -fno-stack-protector -fno-common -march=native
+CFLAGS= -Wall -O0 -g3 -ggdb $(MYCFLAGS) -fno-omit-frame-pointer
 AR= ar rc
 RANLIB= ranlib
 RM= rm -f
