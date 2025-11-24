@@ -418,12 +418,12 @@ OP_EXTRAARG/*	Ax	extra (larger) argument for previous opcode	*/
 
 LUAI_DDEC(const lu_byte luaP_opmodes[NUM_OPCODES];)
 
-#define getOpMode(m)	(cast(enum OpMode, luaP_opmodes[m] & 7))
-#define testAMode(m)	(luaP_opmodes[m] & (1 << 3))
-#define testTMode(m)	(luaP_opmodes[m] & (1 << 4))
-#define testITMode(m)	(luaP_opmodes[m] & (1 << 5))
-#define testOTMode(m)	(luaP_opmodes[m] & (1 << 6))
-#define testMMMode(m)	(luaP_opmodes[m] & (1 << 7))
+#define getOpMode(m)	(cast(enum OpMode, luaP_opmodes[m] & 7)) //取出低三位（111）操作码的模式
+#define testAMode(m)	(luaP_opmodes[m] & (1 << 3)) //bit3：A 模式—该指令是否写寄存器 A 1 该指令 会修改 A 寄存器  0 A 仅用作输入，不会写
+#define testTMode(m)	(luaP_opmodes[m] & (1 << 4)) //bit4：T 模式—该指令是否是测试（带条件跳转）1 该指令为 测试指令，会影响下一条 OP_JMP 0 普通指令
+#define testITMode(m)	(luaP_opmodes[m] & (1 << 5)) //bit5：IT 模式（Input Top Mode） 1 指令可从“top”读取多个返回值 0 指令只读取一个返回值
+#define testOTMode(m)	(luaP_opmodes[m] & (1 << 6)) //bit6：OT 模式（Output Top Mode）—该指令是否设置了 L->top 1 指令将产生可变数量的返回值 0 //指令将产生固定数量的返回值
+#define testMMMode(m)	(luaP_opmodes[m] & (1 << 7)) //bit7：MM 模式—该指令是否是一个 MM 指令（调用元方法）1 可能触发元方法运算，如 __add __index 等 0 不会触发元方法运算
 
 
 LUAI_FUNC int luaP_isOT (Instruction i);

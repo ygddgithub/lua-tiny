@@ -1229,7 +1229,7 @@ void luaV_execute (lua_State *L, CallInfo *ci) {
     lua_assert(base <= L->top.p && L->top.p <= L->stack_last.p);
     /* for tests, invalidate top for instructions not expecting it */
     lua_assert(luaP_isIT(i) || (cast_void(L->top.p = base), 1));
-    vmdispatch (GET_OPCODE(i)) {
+    vmdispatch (GET_OPCODE(i)) { //获低7位并转换成 OpCode
       vmcase(OP_MOVE) {
         StkId ra = RA(i);
         setobjs2s(L, ra, RB(i));

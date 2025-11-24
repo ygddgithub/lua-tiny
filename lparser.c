@@ -2171,9 +2171,9 @@ LClosure *luaY_parser (lua_State *L, ZIO *z, Mbuffer *buff,
                        Dyndata *dyd, const char *name, int firstchar) {
   LexState lexstate;
   FuncState funcstate;
-  LClosure *cl = luaF_newLclosure(L, 1);  /* create main closure */
+  LClosure *cl = luaF_newLclosure(L, 1);  /* create main closure */ //main 只有一个upvalue_ENV
   setclLvalue2s(L, L->top.p, cl);  /* anchor it (to avoid being collected) */
-  luaD_inctop(L);
+  luaD_inctop(L); //栈顶指针加一 ，检查栈溢出状态
   lexstate.h = luaH_new(L);  /* create table for scanner */
   sethvalue2s(L, L->top.p, lexstate.h);  /* anchor it */
   luaD_inctop(L);

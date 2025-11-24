@@ -12,7 +12,7 @@
 
 #include "lopcodes.h"
 
-
+// lua操作码格式
 #define opmode(mm,ot,it,t,a,m)  \
     (((mm) << 7) | ((ot) << 6) | ((it) << 5) | ((t) << 4) | ((a) << 3) | (m))
 
