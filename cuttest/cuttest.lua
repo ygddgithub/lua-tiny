@@ -4,7 +4,13 @@ local function add(a,b)
     return a+b
 end
 
-
+local function testif()
+    if(add(1,2)<9)then
+        print(9)
+    else
+        print(12)
+    end
+end
 local function test()
     local a = 111
     local b = 222

@@ -54,8 +54,8 @@
 /*
 ** 'lalpha' (Lua alphabetic) and 'lalnum' (Lua alphanumeric) both include '_'
 */
-#define lislalpha(c)	testprop(c, MASK(ALPHABIT))
-#define lislalnum(c)	testprop(c, (MASK(ALPHABIT) | MASK(DIGITBIT)))
+#define lislalpha(c)	testprop(c, MASK(ALPHABIT)) //字符类型luai_ctype_[(c)+1] 右第一位为1则返回true
+#define lislalnum(c)	testprop(c, (MASK(ALPHABIT) | MASK(DIGITBIT))) //字符类型 右侧一位和第二位为一返回true
 #define lisdigit(c)	testprop(c, MASK(DIGITBIT))
 #define lisspace(c)	testprop(c, MASK(SPACEBIT))
 #define lisprint(c)	testprop(c, MASK(PRINTBIT))

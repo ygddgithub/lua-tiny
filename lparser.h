@@ -23,6 +23,7 @@
 
 /* kinds of variables/expressions */
 typedef enum {
+  // 常量类
   VVOID,  /* when 'expdesc' describes the last expression of a list,
              this kind means an empty list (so, no expression) */
   VNIL,  /* constant nil */
@@ -33,10 +34,13 @@ typedef enum {
   VKINT,  /* integer constant; ival = numerical integer value */
   VKSTR,  /* string constant; strval = TString address;
              (string is fixed by the scanner) */
+  // 值已经在某寄存器中
   VNONRELOC,  /* expression has its value in a fixed register;
                  info = result register */
+  // 局部变量（存在寄存器）
   VLOCAL,  /* local variable; var.ridx = register index;
               var.vidx = relative index in 'actvar.arr'  */
+  // vararg 参数（...）
   VVARGVAR,  /* vararg parameter; var.ridx = register index;
               var.vidx = relative index in 'actvar.arr'  */
   VGLOBAL,  /* global variable;
