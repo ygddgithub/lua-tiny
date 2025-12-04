@@ -300,7 +300,7 @@ GCObject *luaC_newobjdt (lua_State *L, lu_byte tt, size_t sz, size_t offset) {
   GCObject *o = cast(GCObject *, p + offset);
   o->marked = luaC_white(g);
   o->tt = tt;
-  o->next = g->allgc;
+  o->next = g->allgc; //链表头插法 挂接新建对象到allgc链表
   g->allgc = o;
   return o;
 }

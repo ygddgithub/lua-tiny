@@ -54,12 +54,12 @@
 /*
 ** 'lalpha' (Lua alphabetic) and 'lalnum' (Lua alphanumeric) both include '_'
 */
-#define lislalpha(c)	testprop(c, MASK(ALPHABIT)) //字符类型luai_ctype_[(c)+1] 右第一位为1则返回true
-#define lislalnum(c)	testprop(c, (MASK(ALPHABIT) | MASK(DIGITBIT))) //字符类型 右侧一位和第二位为一返回true
-#define lisdigit(c)	testprop(c, MASK(DIGITBIT))
-#define lisspace(c)	testprop(c, MASK(SPACEBIT))
-#define lisprint(c)	testprop(c, MASK(PRINTBIT))
-#define lisxdigit(c)	testprop(c, MASK(XDIGITBIT))
+#define lislalpha(c)	testprop(c, MASK(ALPHABIT)) // 字母
+#define lislalnum(c)	testprop(c, (MASK(ALPHABIT) | MASK(DIGITBIT))) //字母或数字 右侧一位和第二位为一返回true
+#define lisdigit(c)	testprop(c, MASK(DIGITBIT))    // 数字
+#define lisspace(c)	testprop(c, MASK(SPACEBIT))    //空白字符
+#define lisprint(c)	testprop(c, MASK(PRINTBIT))      //可打印字符
+#define lisxdigit(c)	testprop(c, MASK(XDIGITBIT))   //十六进制数字
 
 
 /*

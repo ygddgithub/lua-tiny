@@ -50,7 +50,7 @@ int luaS_eqstr (TString *a, TString *b) {
 }
 
 
-static unsigned luaS_hash (const char *str, size_t l, unsigned seed) {
+static unsigned luaS_hash (const char *str, size_t l, unsigned seed) {// 字符串长度异或种子值 然后每个字符参与哈希计算
   unsigned int h = seed ^ cast_uint(l);
   for (; l > 0; l--)
     h ^= ((h<<5) + (h>>2) + cast_byte(str[l - 1]));
@@ -215,8 +215,8 @@ static TString *internshrstr (lua_State *L, const char *str, size_t l) {
   TString *ts;
   global_State *g = G(L);
   stringtable *tb = &g->strt;
-  unsigned int h = luaS_hash(str, l, g->seed);
-  TString **list = &tb->hash[lmod(h, tb->size)];
+  unsigned int h = luaS_hash(str, l, g->seed); // 计算哈希值
+  TString **list = &tb->hash[lmod(h, tb->size)]; // table中只有size个桶 通过哈希值取模定位到桶的位置，tb->hash是一个TString**类型的数组，每个元素是一个链表的头指针
   lua_assert(str != NULL);  /* otherwise 'memcmp'/'memcpy' are undefined */
   for (ts = *list; ts != NULL; ts = ts->u.hnext) {
     if (l == cast_uint(ts->shrlen) &&
@@ -234,10 +234,10 @@ static TString *internshrstr (lua_State *L, const char *str, size_t l) {
   }
   ts = createstrobj(L, sizestrshr(l), LUA_VSHRSTR, h);
   ts->shrlen = cast(ls_byte, l);
-  getshrstr(ts)[l] = '\0';  /* ending 0 */
+  getshrstr(ts)[l] = '\0';  /* ending 0 ts创建时用的是sizestrshr(l)创建，通过contents偏移加上l+1创建的大小*/ 
   memcpy(getshrstr(ts), str, l * sizeof(char));
-  ts->u.hnext = *list;
-  *list = ts;
+  ts->u.hnext = *list; /* hash bucket的头指针*/
+  *list = ts; /*ts为新的头指针*/
   tb->nuse++;
   return ts;
 }

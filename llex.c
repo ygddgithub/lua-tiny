@@ -140,7 +140,7 @@ static TString *anchorstr (LexState *ls, TString *ts) {
     return tsvalue(&oldts);  /* use stored value */
   else {  /* create a new entry */
     TValue *stv = s2v(L->top.p++);  /* reserve stack space for string */
-    setsvalue(L, stv, ts);  /* push (anchor) the string on the stack */
+    setsvalue(L, stv, ts);  /* push (anchor) the string on the stack 将ts的gc和tt放在stv(栈顶)的对应记录上 */
     luaH_set(L, ls->h, stv, stv);  /* t[string] = string */
     /* table is not a metatable, so it does not need to invalidate cache */
     luaC_checkGC(L);
@@ -241,7 +241,7 @@ static int check_next2 (LexState *ls, const char *set) {
 **
 ** The caller might have already read an initial dot.
 */
-static int read_numeral (LexState *ls, SemInfo *seminfo) {
+static int read_numeral (LexState *ls, SemInfo *seminfo) { //处理数字
   TValue obj;
   const char *expo = "Ee";
   int first = ls->current;

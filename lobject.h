@@ -307,8 +307,8 @@ typedef struct GCObject {
 } GCObject;
 
 
-/* Bit mark for collectable types */
-#define BIT_ISCOLLECTABLE	(1 << 6)
+/* Bit mark for collectable types 不可gc的没有*/
+#define BIT_ISCOLLECTABLE	(1 << 6) 
 
 #define iscollectable(o)	(rawtt(o) & BIT_ISCOLLECTABLE)
 
@@ -404,7 +404,7 @@ typedef struct GCObject {
 */
 typedef struct TString {
   CommonHeader;
-  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
+  lu_byte extra;  /* reserved words for short strings 非reserved words为0; "has hash" for longs hash未计算为0*/ 
   ls_byte shrlen;  /* length for short strings, negative for long strings */
   unsigned int hash;
   union {
@@ -812,7 +812,8 @@ typedef struct Table {
 
 
 /*
-** 'module' operation for hashing (size is always a power of 2)
+** 'module' operation for hashing (size is always a power of 2)          x&(x-1)==0只有2的幂
+** 当 size 是 2 的幂 时：s % size == s & (size - 1),s & (size - 1) 比 i % size 更快。
 */
 #define lmod(s,size) \
 	(check_exp((size&(size-1))==0, (cast_uint(s) & cast_uint((size)-1))))

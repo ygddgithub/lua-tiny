@@ -24,8 +24,10 @@
 #define NONA		0x00	/* default */
 #endif
 
-
-LUAI_DDEF const lu_byte luai_ctype_[UCHAR_MAX + 2] = { //lua ascii字符分类表
+//lua ascii字符分类表 0x00         0x08           0x0c        0x04         0x16           0x15        0x05 
+//                    00           1000          1100       00100         10110           10101       00101
+//                         (制表符等非可打印)       空格      (特殊字符)     (ox纯数字)     (ox字母)     (其他可打印字母G-Z g-z)
+LUAI_DDEF const lu_byte luai_ctype_[UCHAR_MAX + 2] = { 
   0x00,  /* EOZ */
   0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,	/* 0. */
   0x00,  0x08,  0x08,  0x08,  0x08,  0x08,  0x00,  0x00,
