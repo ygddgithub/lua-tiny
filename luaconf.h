@@ -339,7 +339,7 @@
 /*
 @@ LUA_COMPAT_GLOBAL avoids 'global' being a reserved word
 */
-#define LUA_COMPAT_GLOBAL
+// #define LUA_COMPAT_GLOBAL  // 删除global保留字
 
 
 /*

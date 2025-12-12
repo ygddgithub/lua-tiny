@@ -2094,7 +2094,7 @@ static void statement (LexState *ls) {
       globalstatfunc(ls, line);
       break;
     }
-    case TK_DBCOLON: {  /* stat -> label */
+    case TK_DBCOLON: {  /* stat -> label 双冒号 goto标签 ::标签::*/  
       luaX_next(ls);  /* skip double colon */
       labelstat(ls, str_checkname(ls), line);
       break;
@@ -2113,7 +2113,7 @@ static void statement (LexState *ls) {
       gotostat(ls, line);
       break;
     }
-#if defined(LUA_COMPAT_GLOBAL)
+#if defined(LUA_COMPAT_GLOBAL) //兼容global
     case TK_NAME: {
       /* compatibility code to parse global keyword when "global"
          is not reserved */

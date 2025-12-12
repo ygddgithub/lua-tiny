@@ -341,14 +341,14 @@ LUA_API void (lua_warning)  (lua_State *L, const char *msg, int tocont);
 
 
 /*
-** garbage-collection parameters
+** garbage-collection parameters  gc参数
 */
-/* parameters for generational mode */
+/* parameters for generational mode 分代 */ 
 #define LUA_GCPMINORMUL		0  /* control minor collections */
 #define LUA_GCPMAJORMINOR	1  /* control shift major->minor */
 #define LUA_GCPMINORMAJOR	2  /* control shift minor->major */
 
-/* parameters for incremental mode */
+/* parameters for incremental mode 增量*/
 #define LUA_GCPPAUSE		3  /* size of pause between successive GCs */
 #define LUA_GCPSTEPMUL		4  /* GC "speed" */
 #define LUA_GCPSTEPSIZE		5  /* GC granularity */
